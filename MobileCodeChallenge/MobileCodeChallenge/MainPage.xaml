@@ -7,7 +7,7 @@
                   Header="Starships">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextCell Text="{Binding Name}" TextColor="Black" Detail="{Binding StarshipClass}" />
+                    <TextCell Text="{Binding name}" TextColor="Black" Detail="{Binding starship_class}" />
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
