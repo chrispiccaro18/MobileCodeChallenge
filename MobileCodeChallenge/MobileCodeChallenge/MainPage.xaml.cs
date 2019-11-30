@@ -18,23 +18,12 @@ namespace MobileCodeChallenge
         {
             InitializeComponent();
 
-            GetStarships();
-
             listView.ItemsSource = new Starship[]
             {
-              new Starship() { name = "AA-9 Coruscant freighter", starship_class = "freighter"},
-              new Starship() { name = "arc-170", starship_class = "starfighter"},
-              new Starship() { name = "A-wing", starship_class = "starfighter"},
+              new Starship() { Name = "AA-9 Coruscant freighter", Starship_Class = "freighter"},
+              new Starship() { Name = "arc-170", Starship_Class = "starfighter"},
+              new Starship() { Name = "A-wing", Starship_Class = "starfighter"},
             };
-        }
-
-        public async void GetStarships()
-        {
-            HttpClient client = new HttpClient();
-            var response = await client.GetStringAsync("https://swapi.co/api/starships");
-            var result = JsonConvert.DeserializeObject<Result>(response);
-            Console.WriteLine(result.starships);
-            // listView.ItemsSource = result.starships;
         }
     }
 }
