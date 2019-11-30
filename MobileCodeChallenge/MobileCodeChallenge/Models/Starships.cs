@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace MobileCodeChallenge.Models
 {
-    class Starships
+    public class Starships
     {
         public List<Starship> starships { get; set; }
 
