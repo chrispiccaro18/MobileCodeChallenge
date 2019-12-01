@@ -7,12 +7,23 @@
              x:Class="MobileCodeChallenge.StarshipPage"
              Title="{Binding Name}">
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout HorizontalOptions="Center">
             <Image x:Name="starshipImage"
                    VerticalOptions="CenterAndExpand"
-                   HeightRequest="120" />
-            <Label Text="{Binding Name}" />
-            <Label Text="{Binding Model}" />
+                   HeightRequest="80" />
+            <Label Text="{Binding Name, StringFormat='Name: {0}'}" />
+            <Label Text="{Binding Model, StringFormat='Model: {0}'}" />
+            <Label Text="{Binding Starship_Class, StringFormat='Starship Class: {0}'}" />
+            <Label Text="{Binding Manufacturer, StringFormat='Manufacturer: {0}'}" />
+            <Label Text="{Binding Cost_In_Credits, StringFormat='Cost in Credits: {0}'}" />
+            <Label Text="{Binding Length, StringFormat='Length: {0}'}" />
+            <Label Text="{Binding Crew, StringFormat='Crew: {0}'}" />
+            <Label Text="{Binding Passengers, StringFormat='Passengers: {0}'}" />
+            <Label Text="{Binding Max_Atmosphering_Speed, StringFormat='Max Atmosphering Speed: {0}'}" />
+            <Label Text="{Binding Hyperdrive_Rating, StringFormat='Hyperdrive Rating: {0}'}" />
+            <Label Text="{Binding MGLT, StringFormat='MGLT: {0}'}" />
+            <Label Text="{Binding Cargo_Capacity, StringFormat='Cargo Capacity: {0}'}" />
+            <Label Text="{Binding Consumables, StringFormat='Consumables: {0}'}" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
