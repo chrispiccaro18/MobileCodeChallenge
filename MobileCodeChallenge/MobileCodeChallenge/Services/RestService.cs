@@ -10,6 +10,7 @@ namespace MobileCodeChallenge.Services
     public class RestService : IRestService
     {
         HttpClient _client;
+        private static string BaseUri { get; set; } = "https://swapi.co/api/starships";
 
         public List<Starship> starships { get; private set; }
 

@@ -4,12 +4,15 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="MobileCodeChallenge.StarshipPage">
+             x:Class="MobileCodeChallenge.StarshipPage"
+             Title="{Binding Name}">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Image x:Name="starshipImage"
+                   VerticalOptions="CenterAndExpand"
+                   HeightRequest="120" />
+            <Label Text="{Binding Name}" />
+            <Label Text="{Binding Model}" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

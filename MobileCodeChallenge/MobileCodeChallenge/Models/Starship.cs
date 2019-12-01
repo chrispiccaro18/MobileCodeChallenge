@@ -21,6 +21,7 @@ namespace MobileCodeChallenge.Models
         public string Cargo_Capacity { get; set; }
         public string Consumables { get; set; }
         public string Url { get; set; }
+        public string ImageUrl { get; set; }
 
         public void ShowStarship()
         {

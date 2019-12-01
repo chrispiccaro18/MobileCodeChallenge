@@ -4,19 +4,15 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="MobileCodeChallenge.StarshipListPage">
+             x:Class="MobileCodeChallenge.StarshipListPage"
+             Title="Starships">
     <ListView x:Name="listView"
               ItemSelected="OnItemSelected">
         <ListView.ItemTemplate>
             <DataTemplate>
-                <ViewCell>
-                    <StackLayout Padding="20,0,0,0"
-                                 HorizontalOptions="StartAndExpand"
-                                 Orientation="Horizontal">
-                        <Label Text="{Binding Name}"/>
-                        <Label Text="{Binding Starship_Class}"/>
-                    </StackLayout>
-                </ViewCell>
+                <TextCell Text="{Binding Name}"
+                          TextColor="Black"
+                          Detail="{Binding Starship_Class}" />
             </DataTemplate>
         </ListView.ItemTemplate>
     </ListView>

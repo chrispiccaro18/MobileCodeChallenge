@@ -24,10 +24,8 @@ namespace MobileCodeChallenge
 
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            await Navigation.PushAsync(new StarshipPage
-            {
-                BindingContext = e.SelectedItem as Starship
-            });
+            var starship = e.SelectedItem as Starship;
+            await Navigation.PushAsync(new StarshipPage(starship));
         }
     }
 }
