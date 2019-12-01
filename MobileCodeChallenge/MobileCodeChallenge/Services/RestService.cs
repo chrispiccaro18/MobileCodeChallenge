@@ -21,14 +21,23 @@ namespace MobileCodeChallenge.Services
         public async Task<List<Starship>> RefreshDataAsync()
         {
             starships = new List<Starship>();
-            var uri = new Uri("https://swapi.co/api/starships/?page=1");
             try
             {
-                var response = await _client.GetAsync(uri);
-                if (response.IsSuccessStatusCode)
+                var originalStarships = await GetStarshipsAsync(_client);
+
+                int pages = originalStarships.Count / originalStarships.Results.Count;
+                if (originalStarships.Count % originalStarships.Results.Count != 0) pages++;
+
+                originalStarships.Results.ForEach(starship => {
+                    starships.Add(starship);
+                });
+
+                for (int i = 2; i < pages + 1; i++)
                 {
-                    var content = await response.Content.ReadAsAsync<StarshipsResponse>();
-                    starships = content.Results;
+                    StarshipsResponse starshipsResponse = await GetStarshipsAsync(_client, i);
+                    starshipsResponse.Results.ForEach(starship => {
+                        starships.Add(starship);
+                    });
                 }
             }
             catch (Exception ex)
@@ -36,6 +45,17 @@ namespace MobileCodeChallenge.Services
                 Debug.WriteLine(@"\tERROR {0}", ex.Message);
             }
 
+            return starships;
+        }
+
+        public async Task<StarshipsResponse> GetStarshipsAsync(HttpClient client, int page = 1)
+        {
+            StarshipsResponse starships = null;
+            HttpResponseMessage response = await client.GetAsync($"{BaseUri}/?page={page}");
+            if (response.IsSuccessStatusCode)
+            {
+                starships = await response.Content.ReadAsAsync<StarshipsResponse>();
+            }
             return starships;
         }
     }

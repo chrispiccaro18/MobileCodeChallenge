@@ -16,7 +16,10 @@ namespace MobileCodeChallenge
         protected async override void OnAppearing()
         {
             base.OnAppearing();
-            listView.ItemsSource = await App.starshipManager.GetStarshipsAsync();
+            var rawStarships = await App.starshipManager.GetStarshipsAsync();
+            var starships = new Starships();
+            starships.starships = rawStarships;
+            listView.ItemsSource = starships.SortStarshipsAlphabetically();
         }
 
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
