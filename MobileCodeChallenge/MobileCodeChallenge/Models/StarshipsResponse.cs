@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MobileCodeChallenge.Models
 {
-    class StarshipsResponse
+    public class StarshipsResponse
     {
         public int Count { get; set; }
         public string Next { get; set; }
