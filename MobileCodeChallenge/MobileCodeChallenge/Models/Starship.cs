@@ -1,7 +1,4 @@
-﻿using System;
-using System.Text.RegularExpressions;
-
-namespace MobileCodeChallenge.Models
+﻿namespace MobileCodeChallenge.Models
 {
     public class Starship
     {
