@@ -10,7 +10,7 @@ namespace MobileCodeChallenge
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new Views.Starships());
         }
 
         protected override void OnStart()
