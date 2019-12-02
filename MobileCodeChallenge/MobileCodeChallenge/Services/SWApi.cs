@@ -48,6 +48,7 @@ namespace MobileCodeChallenge.Services
         {
             StarshipsResponse starships = null;
             var response = await client.GetAsync($"{BaseUri}/?page={page}");
+
             if (response.IsSuccessStatusCode)
             {
                 starships = await response.Content.ReadAsAsync<StarshipsResponse>();

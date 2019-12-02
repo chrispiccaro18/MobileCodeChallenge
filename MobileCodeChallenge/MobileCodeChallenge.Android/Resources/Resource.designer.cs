@@ -7572,7 +7572,7 @@ namespace MobileCodeChallenge.Droid
 			
 			// aapt resource value: 1
 			public const int ActivityChooserView_initialActivityCount = 1;
-			
+
 			// aapt resource value: { 0x10100F2,0x7F030046,0x7F0300CC,0x7F0300CD,0x7F0300E8,0x7F030114,0x7F030115 }
 			public static int[] AlertDialog = new int[] {
 					16842994,
@@ -7603,7 +7603,7 @@ namespace MobileCodeChallenge.Droid
 			
 			// aapt resource value: 6
 			public const int AlertDialog_singleChoiceItemLayout = 6;
-			
+
 			// aapt resource value: { 0x10100D4,0x101048F,0x1010540,0x7F030087,0x7F03008B }
 			public static int[] AppBarLayout = new int[] {
 					16842964,
@@ -8108,7 +8108,7 @@ namespace MobileCodeChallenge.Droid
 			
 			// aapt resource value: 77
 			public const int AppCompatTheme_listPreferredItemPaddingLeft = 77;
-			
+
 			// aapt resource value: 78
 			public const int AppCompatTheme_listPreferredItemPaddingRight = 78;
 			
@@ -8331,7 +8331,7 @@ namespace MobileCodeChallenge.Droid
 			
 			// aapt resource value: 12
 			public const int CardView_contentPaddingTop = 12;
-			
+
 			// aapt resource value: { 0x7F030057,0x7F030058,0x7F030071,0x7F03008C,0x7F03008D,0x7F03008E,0x7F03008F,0x7F030090,0x7F030091,0x7F030092,0x7F030109,0x7F03010A,0x7F030121,0x7F030153,0x7F030154,0x7F03015E }
 			public static int[] CollapsingToolbarLayout = new int[] {
 					2130903127,
@@ -8934,7 +8934,7 @@ namespace MobileCodeChallenge.Droid
 			
 			// aapt resource value: 9
 			public const int NavigationView_menu = 9;
-			
+
 			// aapt resource value: { 0x1010176,0x10102C9,0x7F0300ED }
 			public static int[] PopupWindow = new int[] {
 					16843126,
