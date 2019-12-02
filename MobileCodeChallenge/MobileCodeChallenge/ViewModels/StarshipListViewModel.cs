@@ -8,7 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using MobileCodeChallenge.Models;
 using MobileCodeChallenge.Services;
+using MobileCodeChallenge.Views;
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace MobileCodeChallenge.ViewModels
 {
@@ -43,7 +45,7 @@ namespace MobileCodeChallenge.ViewModels
                 if (value == selectedStarship)
                     return;
                 selectedStarship = value;
-                Console.WriteLine(selectedStarship.Name);
+                Application.Current.MainPage.Navigation.PushAsync(new StarshipPage(new StarshipViewModel(selectedStarship)));
             }
         }
     }
