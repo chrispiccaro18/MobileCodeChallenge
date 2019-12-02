@@ -31,7 +31,7 @@ namespace MobileCodeChallenge.ViewModels
             Starships = new ObservableCollection<Starship>();
             SWApi.GetStarshipsAsync(starships =>
             {
-                foreach (Starship starship in starships)
+                foreach (var starship in starships)
                     Starships.Add(starship);
             });
         }
