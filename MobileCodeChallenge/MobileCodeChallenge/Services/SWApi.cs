@@ -9,49 +9,51 @@ namespace MobileCodeChallenge.Services
     public class SWApi
     {
         private static string BaseUri { get; set; } = "https://swapi.co/api/starships";
-        public async Task<Starship> GetStarshipAsync(HttpClient client, int starshipNumber)
+        public static async Task GetStarshipsAsync(Action<IEnumerable<Starship>> action)
         {
-            Starship starship = null;
-            HttpResponseMessage response = await client.GetAsync($"{BaseUri}/{starshipNumber}");
-            if (response.IsSuccessStatusCode)
+            var client = new HttpClient();
+            var allstarships = new List<Starship>();
+
+            var firstPageStarships = await GetStarshipsByPageAsync(client);
+
+            int pages = firstPageStarships.Count / firstPageStarships.Results.Count;
+            if (firstPageStarships.Count % firstPageStarships.Results.Count != 0) pages++;
+
+            firstPageStarships.Results.ForEach(starship =>
             {
-                starship = await response.Content.ReadAsAsync<Starship>();
+                allstarships.Add(starship);
+            });
+
+            for (int i = 2; i < pages + 1; i++)
+            {
+                var starshipsResponse = await GetStarshipsByPageAsync(client, i);
+                starshipsResponse.Results.ForEach(starship => {
+                    allstarships.Add(starship);
+                });
             }
-            return starship;
+
+            // this should probably be in the view model
+            // but not sure how
+            allstarships.Sort(delegate (Starship x, Starship y)
+            {
+                if (x.Name == null && y.Name == null) return 0;
+                else if (x.Name == null) return -1;
+                else if (y.Name == null) return 1;
+                else return x.Name.CompareTo(y.Name);
+            });
+
+            action(allstarships);
         }
-        public async Task<StarshipsResponse> GetStarshipsAsync(HttpClient client, int page = 1)
+        public static async Task<StarshipsResponse> GetStarshipsByPageAsync(HttpClient client, int page = 1)
         {
             StarshipsResponse starships = null;
-            HttpResponseMessage response = await client.GetAsync($"{BaseUri}/?page={page}");
+            var response = await client.GetAsync($"{BaseUri}/?page={page}");
+
             if (response.IsSuccessStatusCode)
             {
                 starships = await response.Content.ReadAsAsync<StarshipsResponse>();
             }
             return starships;
-        }
-
-        public async Task<List<Starship>> GetAllStarshipsAsync(HttpClient client)
-        {
-            List<Starship> allStarships = new List<Starship>();
-
-            StarshipsResponse originalStarships = await GetStarshipsAsync(client);
-
-            int pages = originalStarships.Count / originalStarships.Results.Count;
-            if (originalStarships.Count % originalStarships.Results.Count != 0) pages++;
-
-            originalStarships.Results.ForEach(starship => {
-                allStarships.Add(starship);
-            });
-
-            for (int i = 2; i < pages + 1; i++)
-            {
-                StarshipsResponse starships = await GetStarshipsAsync(client, i);
-                starships.Results.ForEach(starship => {
-                    allStarships.Add(starship);
-                });
-            }
-
-            return allStarships;
         }
     }
 }

@@ -12,9 +12,7 @@ namespace MobileCodeChallenge
         {
             InitializeComponent();
 
-            starshipManager = new StarshipManager(new RestService());
-
-            MainPage = new NavigationPage(new StarshipListPage());
+            MainPage = new NavigationPage(new Views.Starships());
         }
 
         protected override void OnStart()

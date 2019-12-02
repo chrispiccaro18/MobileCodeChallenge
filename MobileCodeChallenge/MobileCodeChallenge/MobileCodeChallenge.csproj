@@ -12,16 +12,20 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.7" />
     <PackageReference Include="Microsoft.Azure.CognitiveServices.Search.ImageSearch" Version="2.0.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-    <PackageReference Include="Refit" Version="5.0.23" />
-    <PackageReference Include="Xamarin.Forms" Version="3.4.0.1008975" />
+    <PackageReference Include="Xamarin.Forms" Version="4.3.0.991211" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="StarshipListPage.xaml">
+    <Compile Update="Views\StarshipListPage.xaml.cs">
+      <DependentUpon>StarshipListPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\StarshipListPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="StarshipPage.xaml">
+    <EmbeddedResource Update="Views\StarshipPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

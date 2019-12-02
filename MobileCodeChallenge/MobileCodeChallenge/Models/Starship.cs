@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Text.RegularExpressions;
-
-namespace MobileCodeChallenge.Models
+﻿namespace MobileCodeChallenge.Models
 {
     public class Starship
     {
@@ -22,18 +17,5 @@ namespace MobileCodeChallenge.Models
         public string Consumables { get; set; }
         public string Url { get; set; }
         public string ImageUrl { get; set; }
-
-        public void ShowStarship()
-        {
-            foreach (var prop in this.GetType().GetProperties())
-            {
-                Console.WriteLine($"{prop.Name} = {prop.GetValue(this, null)}");
-            }
-        }
-
-        public int ShowStarshipNumber()
-        {
-            return Int32.Parse(Regex.Match(this.Url, @"\d+").Value);
-        }
     }
 }
