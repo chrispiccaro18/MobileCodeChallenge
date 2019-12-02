@@ -10,7 +10,7 @@
         <StackLayout HorizontalOptions="Center">
             <Image Source="{Binding ImageUrl}"
                    VerticalOptions="CenterAndExpand"
-                   HeightRequest="80" />
+                   HeightRequest="120" />
             <Label Text="{Binding Starship.Name, StringFormat='Name: {0}'}" />
             <Label Text="{Binding Starship.Model, StringFormat='Model: {0}'}" />
             <Label Text="{Binding Starship.Starship_Class, StringFormat='Starship Class: {0}'}" />

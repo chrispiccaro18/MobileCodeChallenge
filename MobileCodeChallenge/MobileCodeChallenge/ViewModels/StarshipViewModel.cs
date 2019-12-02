@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Text;
 using MobileCodeChallenge.Models;
 using MobileCodeChallenge.Services;
 
@@ -17,20 +14,15 @@ namespace MobileCodeChallenge.ViewModels
             Title = starship.Name;
             Starship = starship;
             LoadImage(Starship.Name);
-            Console.WriteLine(imageUrl);
-            Console.WriteLine(ImageUrl);
         }
-        private string imageUrl = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.jennybeaumont.com%2Fwp-content%2Fuploads%2F2015%2F03%2Fplaceholder.gif&f=1&nofb=1";
+        private string imageUrl = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Frobert.accettura.com%2Fwp-content%2Fuploads%2F2008%2F12%2F20081217_simcity_iphone_loading.jpg&f=1&nofb=1";
         public string ImageUrl
         {
             get { return imageUrl; }
             set
             {
-                if (value != imageUrl)
-                {
-                    ImageUrl = value;
-                    NotifyPropertyChanged();
-                }
+                imageUrl = value;
+                NotifyPropertyChanged();
             }
         }
         public event PropertyChangedEventHandler PropertyChanged;
@@ -42,7 +34,6 @@ namespace MobileCodeChallenge.ViewModels
         private async void LoadImage(string name)
         {
             var imageService = new StarshipImageService();
-            Console.WriteLine(await imageService.GetImageUrl(name));
             ImageUrl = await imageService.GetImageUrl(name);
         }
     }
